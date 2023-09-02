@@ -17,4 +17,5 @@ export { default as Stacked } from './Charts/Stacked';
 export{default as ParachutesListPage} from './Parachutes/ParachutesListPage';
 export{default as ParachuteAddPage} from './Parachutes/ParachuteAddPage';
 export{default as ParachuteEditPage} from './Parachutes/ParachuteEditPage';
+export {default as LoginPage} from './LoginPage';
 

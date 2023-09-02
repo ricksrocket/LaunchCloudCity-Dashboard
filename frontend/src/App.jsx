@@ -15,6 +15,7 @@ import {
   Customers,
   Kanban,
   Line,
+  LoginPage,
   Area,
   Bar,
   Pie,
@@ -29,6 +30,7 @@ import {
 import "./App.css";
 
 import { useStateContext } from "./contexts/ContextProvider";
+
 
 const App = () => {
   const {
@@ -101,6 +103,7 @@ const App = () => {
                 {/* apps  */}
                 <Route path="/flysheets" element={<Kanban />} />
                 <Route path="/editor" element={<Editor />} />
+                <Route path="/login" element={<LoginPage />} />
 
                 <Route
                   path="/parachutes/*"

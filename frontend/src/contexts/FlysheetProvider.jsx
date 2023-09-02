@@ -12,7 +12,7 @@ const FlysheetProvider = ({ children }) => {
     return storedUser
       ? JSON.parse(storedUser)
       : {
-          name: "Guest",
+          name: "Login",
           email: "",
           role: "",
           team: "",
@@ -99,7 +99,7 @@ const FlysheetProvider = ({ children }) => {
 
   const logout = () => {
     setUser({
-      name: "Guest",
+      name: "Login",
       email: "",
       role: "",
       team: "",
