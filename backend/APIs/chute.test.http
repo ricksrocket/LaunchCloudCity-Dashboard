@@ -1,0 +1,131 @@
+### Create a new parachute
+POST http://localhost:3000/flights/parachutes
+Content-Type: application/json
+
+{
+  "shape": "hexagon",
+  "area": 301,
+  "reefed": false,
+  "spillHole": true
+}
+
+###
+
+### Expected response
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 125
+ETag: W/"7d-k6wFP5mViMzLu4k16BLtLNdyUy0"
+Date: Thu, 27 Jul 2023 21:52:19 GMT
+Connection: close
+
+{
+  "success": true,
+  "data": {
+    "shape": "round",
+    "area": 265,
+    "reefed": true,
+    "spillHole": false,
+    "_id": "64c2e713221f3cb6b15ce24f",
+    "__v": 0
+  }
+}
+###
+
+
+### Get all Parachutes
+
+GET http://localhost:3000/flights/parachutes
+Content-Type: application/json
+
+###
+
+### Expected response
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 127
+ETag: W/"7f-1lQ7ykH0n33PlD2Sc1EzzSNIIJI"
+Date: Thu, 27 Jul 2023 22:05:12 GMT
+Connection: close
+
+{
+  "success": true,
+  "data": [
+    {
+      "_id": "64c2e713221f3cb6b15ce24f",
+      "shape": "round",
+      "area": 265,
+      "reefed": true,
+      "spillHole": false,
+      "__v": 0
+    }
+  ]
+}
+###
+
+# GET parachute by id
+GET http://localhost:3000/flights/parachutes/64c2e713221f3cb6b15ce24f
+Content-Type: application/json
+
+### Expected Response:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 125
+ETag: W/"7d-WTXkNWI5piScxcCWBKphF374y0E"
+Date: Thu, 27 Jul 2023 22:28:14 GMT
+Connection: close
+
+{
+  "success": true,
+  "data": {
+    "_id": "64c2e713221f3cb6b15ce24f",
+    "shape": "round",
+    "area": 265,
+    "reefed": true,
+    "spillHole": false,
+    "__v": 0
+  }
+}
+
+###
+
+# Update parachute by id
+PUT http://localhost:3000/flights/parachutes/64c8e5f2130520d96983e781
+Content-Type: application/json
+
+{
+  "shape": "octagon",
+  "area": 300,
+  "reefed": true,
+  "spillHole": true
+}
+
+### Expected Response:
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 127
+ETag: W/"7f-SeGqOC6gRCje7E0XgRKwCuYoojE"
+Date: Thu, 27 Jul 2023 22:30:37 GMT
+Connection: close
+
+{
+  "success": true,
+  "data": {
+    "_id": "64c2e713221f3cb6b15ce24f",
+    "shape": "octagon",
+    "area": 300,
+    "reefed": true,
+    "spillHole": false,
+    "__v": 0
+  }
+}
+
+###
+
+# Delete parachute by id
+DELETE http://localhost:3000/flights/parachutes/64c31e604a27865870c6e7c2
+Content-Type: application/json

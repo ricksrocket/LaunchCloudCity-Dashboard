@@ -1,0 +1,265 @@
+### Test Create Flysheet
+POST http://localhost:3000/flysheets
+Content-Type: application/json
+
+{
+    "rocketTeamName": "Rocket Team 1",
+    "flightNumber": 4,
+    "tarcTeamNumber": 123,
+    "preFlight": {
+        "date": "2023-08-05T00:00:00Z",
+        "timeOfLaunch": "2023-08-05T08:30:00Z",
+        "location": "Fairfield, IA",
+        "elevationOfLaunchSite": 774,
+        "weatherConditions": {
+            "temperature": 88,
+            "humidity": 60,
+            "atmosphericPressure": 1013,
+            "windSpeedDirection": 180,
+            "windSpeed": 12
+        },
+        "rocketInformation": {
+            "motorUsed": "F39-7",
+            "payloadMass": 210,
+            "liftoffMass": 510,
+            "targetApogee": 820,
+            "parachuteAreaBooster": 10,
+            "staticStabilityMargin": 2.5
+        },
+        "launchInformation": {
+            "railLength": 2.4382,
+            "launchAngleDownwind": 1.5
+        }
+    },
+    "postFlight": {
+        "contestAltimeterApogee": 801,
+        "timer1Duration": 41,
+        "timer2Duration": 43,
+        "avgDuration": 42, 
+        "tarcScores": {
+            "altitudeScore": 0,
+            "durationScore": 4,
+            "totalScore": 4
+        },
+        "flightComputerData": {
+            "initialTheta": 4,
+            "initialPhi": 100,
+            "maxSpeed": 120,
+            "maxGForce": 9,
+            "timeBurnout": 1.3,
+            "timeToApogee": 7,
+            "computerAltimeterApogee": 800
+        }
+    }
+}
+
+
+### Create Flysheet - Expected Response:
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 1068
+ETag: W/"42c-di+rXKG78UwnpadDR596FSTJJaM"
+Date: Fri, 28 Jul 2023 18:46:26 GMT
+Connection: close
+
+{
+  "success": true,
+  "data": {
+    "preFlight": {
+      "rocketTeamName": "Rocket Team 1",
+      "flightNumber": 1,
+      "tarcTeamNumber": 123,
+      "date": "2023-08-05T00:00:00.000Z",
+      "timeOfLaunch": "2023-08-05T08:30:00.000Z",
+      "location": "Fairfield, IA",
+      "elevationOfLaunchSite": 774,
+      "weatherConditions": {
+        "temperature": 90,
+        "humidity": 50,
+        "atmosphericPressure": 1013,
+        "windSpeedDirection": 200,
+        "windSpeed": 12
+      },
+      "rocketInformation": {
+        "motorUsed": "F39-7",
+        "payloadMass": 210,
+        "liftoffMass": 510,
+        "parachuteAreaBooster": 10,
+        "staticStabilityMargin": 2.5,
+        "motorTotalImpulse": 49.7
+      },
+      "launchInformation": {
+        "railLength": 2.4382,
+        "launchAngleDownwind": 1.3,
+        "launchAnglePerpendicular": 0,
+        "tarcAltimeterModel": "PNUT"
+      },
+      "_id": "64c40d02b588624116171186"
+    },
+    "postFlight": {
+      "contestAltimeterApogee": 820,
+      "timer1Duration": 41,
+      "timer2Duration": 43,
+      "avgDuration": 42,
+      "tarcScores": {
+        "altitudeScore": 0,
+        "durationScore": 4,
+        "totalScore": 4
+      },
+      "flightComputerData": {
+        "initialTheta": 4,
+        "initialPhi": 100,
+        "maxSpeed": 120,
+        "maxGForce": 9,
+        "timeBurnout": 1.3,
+        "timeToApogee": 7,
+        "computerAltimeterApogee": 818
+      },
+      "_id": "64c40d02b588624116171187"
+    },
+    "_id": "64c40d02b588624116171185",
+    "__v": 0
+  }
+}
+
+
+### Test Get ALL PreFlight Flysheets
+GET http://localhost:3000/flysheets
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGM2NWUwYTI4OWQ2M2FlNzA3ZThkZGUiLCJyb2xlIjoic3R1ZGVudCIsInRlYW1JZCI6IjY0YzcyMWU4ZGU2YjQ3ZTJjNTJmZGVjNyIsImlhdCI6MTY5MTAwMDAwMX0.K_vvtUs3D4EGVj6BhIkYTe1EQDFKRw0y2VB_asyN7UI
+
+
+### Test Get Flysheet by id
+GET http://localhost:3000/flysheets/64c4934b2af9aa3222a06c72
+Content-Type: application/json
+
+
+### Delete Preflight Flysheet by id
+DELETE http://localhost:3000/flysheets/64c492ff2af9aa3222a06c66
+Content-Type: application/json
+
+
+### Test UPDATE Flysheet
+PUT http://localhost:3000/flysheets/64c4934b2af9aa3222a06c72
+Content-Type: application/json
+
+{
+    "preFlight": {
+        "rocketTeamName": "Rocket Team 1",
+        "flightNumber": 1,
+        "tarcTeamNumber": 123,
+        "date": "2023-08-05T00:00:00Z",
+        "timeOfLaunch": "2023-08-05T08:30:00Z",
+        "location": "Fairfield, IA",
+        "elevationOfLaunchSite": 774,
+        "weatherConditions": {
+            "temperature": 90,
+            "humidity": 60,
+            "atmosphericPressure": 1012,
+            "windSpeedDirection": 200,
+            "windSpeed": 12
+        },
+        "rocketInformation": {
+            "motorUsed": "F39-9",
+            "payloadMass": 210,
+            "liftoffMass": 510,
+            "parachuteAreaBooster": 10,
+            "staticStabilityMargin": 2.5
+        },
+        "launchInformation": {
+            "railLength": 2.4382,
+            "launchAngleDownwind": 1.5
+        }
+    },
+    "postFlight": {
+        "contestAltimeterApogee": 801,
+        "timer1Duration": 41,
+        "timer2Duration": 43,
+        "avgDuration": 42, 
+        "tarcScores": {
+            "altitudeScore": 0,
+            "durationScore": 4,
+            "totalScore": 4
+        },
+        "flightComputerData": {
+            "initialTheta": 4,
+            "initialPhi": 100,
+            "maxSpeed": 120,
+            "maxGForce": 9,
+            "timeBurnout": 1.3,
+            "timeToApogee": 7,
+            "computerAltimeterApogee": 801
+        }
+    }
+}
+
+
+### UPDATE Flysheet - Expected Response:
+HTTP/1.1 201 Created
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 1068
+ETag: W/"42c-di+rXKG78UwnpadDR596FSTJJaM"
+Date: Fri, 28 Jul 2023 18:46:26 GMT
+Connection: close
+
+{
+  "success": true,
+  "data": {
+    "preFlight": {
+      "rocketTeamName": "Rocket Team 1",
+      "flightNumber": 1,
+      "tarcTeamNumber": 123,
+      "date": "2023-08-05T00:00:00.000Z",
+      "timeOfLaunch": "2023-08-05T08:30:00.000Z",
+      "location": "Fairfield, IA",
+      "elevationOfLaunchSite": 774,
+      "weatherConditions": {
+        "temperature": 90,
+        "humidity": 50,
+        "atmosphericPressure": 1013,
+        "windSpeedDirection": 200,
+        "windSpeed": 12
+      },
+      "rocketInformation": {
+        "motorUsed": "F39-7",
+        "payloadMass": 210,
+        "liftoffMass": 510,
+        "parachuteAreaBooster": 10,
+        "staticStabilityMargin": 2.5,
+        "motorTotalImpulse": 49.7
+      },
+      "launchInformation": {
+        "railLength": 2.4382,
+        "launchAngleDownwind": 1.3,
+        "launchAnglePerpendicular": 0,
+        "tarcAltimeterModel": "PNUT"
+      },
+      "_id": "64c40d02b588624116171186"
+    },
+    "postFlight": {
+      "contestAltimeterApogee": 820,
+      "timer1Duration": 41,
+      "timer2Duration": 43,
+      "avgDuration": 42,
+      "tarcScores": {
+        "altitudeScore": 0,
+        "durationScore": 4,
+        "totalScore": 4
+      },
+      "flightComputerData": {
+        "initialTheta": 4,
+        "initialPhi": 100,
+        "maxSpeed": 120,
+        "maxGForce": 9,
+        "timeBurnout": 1.3,
+        "timeToApogee": 7,
+        "computerAltimeterApogee": 818
+      },
+      "_id": "64c40d02b588624116171187"
+    },
+    "_id": "64c40d02b588624116171185",
+    "__v": 0
+  }
+}

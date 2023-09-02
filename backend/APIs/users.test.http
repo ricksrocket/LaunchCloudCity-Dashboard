@@ -1,0 +1,90 @@
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY
+
+
+{
+    "name": "Keshav",
+    "email": "keshav@miu.edu",
+    "password": "123456",
+    "role": "student",
+    "team": "64c71f31de6b47e2c52fdec2"
+}
+
+
+### Create User
+
+POST https://server.launchcloudcity.com/users/signup
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY
+
+
+{
+    "name": "Han",
+    "email": "han@miu.edu",
+    "password": "123",
+    "role": "student",
+    "team": "64cd44694949fcb0d0e2f9e8"
+}
+
+### Create Team
+POST http://localhost:3000/users/teams  
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGM2NWQ0MTI4OWQ2M2FlNzA3ZThkZGEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTExNzM2NTh9.vtMdviQzRFScl82Oqg7u_NiEI7gEvhP5Fyh7L8bv5Cs
+
+{
+    "name": "Team A",
+    "tarcTeamNumber": "24-0001"
+}
+
+### Associate/Update User to a Team
+PUT http://localhost:3000/users/teams/64c65e0a289d63ae707e8dde/team
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY
+
+
+{
+    "team": "64c721e8de6b47e2c52fdec7"
+}
+
+###
+POST http://localhost:8000/users/login
+Content-Type: application/json
+
+{
+    "email": "keshav@miu.edu",
+    "password": "123456"
+}
+
+### Expected Response
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Content-Type: application/json; charset=utf-8
+Content-Length: 216
+ETag: W/"d8-REEtnIVsKUUcLkapb7rtpyx+96E"
+Date: Sat, 29 Jul 2023 11:40:18 GMT
+Connection: close
+
+{
+  "success": true,
+  "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2MzA4MTh9.hFH49RKW54mi9wtyHg5YkZQ6uJs2cF7Y2XHp0zZPUXc",
+  "user": {
+    "name": "John Doe",
+    "email": "john@miu.edu",
+    "role": "admin"
+  }
+}
+
+### Get Team Name
+GET http://localhost:3000/users/teams/64cd445b4949fcb0d0e2f9e6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGM2NWUwYTI4OWQ2M2FlNzA3ZThkZGUiLCJyb2xlIjoic3R1ZGVudCIsInRlYW1JZCI6IjY0YzcyMWU4ZGU2YjQ3ZTJjNTJmZGVjNyIsImlhdCI6MTY5MTAwMDAwMX0.K_vvtUs3D4EGVj6BhIkYTe1EQDFKRw0y2VB_asyN7UI
+
+
+###
+GET http://localhost:8000/users
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY
+
+http GET http://localhost:8000/users Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY
+http GET http://localhost:8000/users "Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY"

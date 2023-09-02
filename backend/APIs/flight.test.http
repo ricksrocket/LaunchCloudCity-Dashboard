@@ -1,0 +1,18 @@
+POST http://localhost:3000/users/signup
+Content-Type: application/json
+
+{
+    "fullname": "Rick Rudloff",
+    "email": "rick@miu.edu",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3000/users/signin
+Content-Type: application/json
+
+{
+    "email": "rr@miu.edu",
+    "password": "123456"
+}
+

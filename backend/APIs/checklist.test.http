@@ -1,0 +1,75 @@
+###
+### Checklist Endpoints
+###
+
+# Create a new checklist
+POST http://localhost:3000/flights/checklists
+Content-Type: application/json
+
+{
+  "name": "Sample3 Checklist",
+  "items": [
+    {
+      "item": "Adjust launch rail downwind",
+      "description": "Adjust the launch rail downwind before launch",
+      "responsible": "Range Prep Officer",
+      "isCritical": true
+    },
+    {
+      "item": "Arm Altimeter",
+      "description": "Arm the altimeter before launch",
+      "responsible": "Payload Officer",
+      "isCritical": false
+    },
+    {
+      "item": "Adjust launch  ⟂  to downwind",
+      "description": "Arm the altimeter before launch",
+      "responsible": "Range Prep Officer",
+      "isCritical": false
+    },
+    {
+      "item": "Activate flight computer",
+      "description": "Step1: turn on flight computer,Step2: press reset button",
+      "responsible": "Range Prep Officer",
+      "isCritical": false
+    }
+  ],
+  "teamId": "64cd445b4949fcb0d0e2f9e6",
+  "flysheetIds": [
+    "64cbb10fc338180d89623a24",
+    "64cbb6f9c338180d89623a55",
+    "64cbbaf9c338180d89623a6f",
+    "64cc5f665168ba74fa5cb260",
+    "64cc82d35168ba74fa5cb29e"
+  ]
+}
+
+
+### Get all checklists
+GET http://localhost:3000/flights/checklists
+
+### Get a specific checklist by ID (replace "checklist_id_here" with an actual ID)
+GET http://localhost:3000/flights/checklists/checklist_id_here
+
+### Update a checklist by ID (replace "checklist_id_here" with an actual ID)
+PUT http://localhost:3000/flights/checklists/checklist_id_here
+Content-Type: application/json
+
+{
+  "name": "Updated Checklist Name",
+  "items": [
+    {
+      "item": "Adjust launch rail downwind",
+      "description": "Adjust the launch rail downwind before launch",
+      "isCritical": true
+    },
+    {
+      "item": "Arm Altimeter",
+      "description": "Arm the altimeter before launch",
+      "isCritical": true
+    }
+  ]
+}
+
+# Delete a checklist by ID (replace "checklist_id_here" with an actual ID)
+DELETE http://localhost:3000/flights/checklists/checklist_id_here
