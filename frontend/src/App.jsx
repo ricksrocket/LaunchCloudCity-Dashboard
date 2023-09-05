@@ -19,18 +19,27 @@ import {
   Area,
   Bar,
   Pie,
-  Financial,
+  // Financial,
   ColorPicker,
   ColorMapping,
   Editor,
   ParachutesListPage,
   ParachuteAddPage,
   ParachuteEditPage,
+  FlysheetListPage,
+  FlysheetLaunchAdd,
+  FlysheetLaunchEdit,
+  FlysheetRocketInfoAdd,
+  FlysheetRocketInfoEdit,
+  FlysheetWeatherAdd,
+  FlysheetWeatherEdit,
+  UsersListPage,
+  Financials,
+  Dashboard,
 } from "./pages";
 import "./App.css";
 
 import { useStateContext } from "./contexts/ContextProvider";
-
 
 const App = () => {
   const {
@@ -94,16 +103,57 @@ const App = () => {
                 {/* dashboard  */}
                 <Route path="/" element={<Ecommerce />} />
                 <Route path="/dashboard" element={<Ecommerce />} />
+                <Route path="/dashboard1" element={<Dashboard />} />
 
                 {/* pages  */}
                 <Route path="/teams" element={<Orders />} />
-                <Route path="/students" element={<Employees />} />
+                <Route path="/students" element={<UsersListPage />} />
                 <Route path="/transactions" element={<Customers />} />
 
+                {/* pages  */}
+                <Route path="/orders" element={<Orders />} />
+                <Route path="/employees" element={<Employees />} />
+                <Route path="/customers" element={<Customers />} />
+
                 {/* apps  */}
-                <Route path="/flysheets" element={<Kanban />} />
+                <Route path="/kanban" element={<Kanban />} />
                 <Route path="/editor" element={<Editor />} />
                 <Route path="/login" element={<LoginPage />} />
+
+                {/* Flysheets */}
+                <Route
+                  path="/flysheets/*"
+                  element={
+                    <Routes>
+                      <Route index element={<FlysheetListPage />} />
+                      <Route
+                        path="rocket/add"
+                        element={<FlysheetRocketInfoAdd />}
+                      />
+                      <Route
+                        path="weather/add"
+                        element={<FlysheetWeatherAdd />}
+                      />
+                      <Route
+                        path="launch/add"
+                        element={<FlysheetLaunchAdd />}
+                      />
+
+                      <Route
+                        path="rocket/edit/:id"
+                        element={<FlysheetRocketInfoEdit />}
+                      />
+                      <Route
+                        path="weather/edit/:id"
+                        element={<FlysheetWeatherEdit />}
+                      />
+                      <Route
+                        path="launch/edit/:id"
+                        element={<FlysheetLaunchEdit />}
+                      />
+                    </Routes>
+                  }
+                />
 
                 <Route
                   path="/parachutes/*"
@@ -124,7 +174,7 @@ const App = () => {
                 <Route path="/area" element={<Area />} />
                 <Route path="/bar" element={<Bar />} />
                 <Route path="/pie" element={<Pie />} />
-                <Route path="/financial" element={<Financial />} />
+                <Route path="/financials" element={<Financials />} />
                 <Route path="/color-mapping" element={<ColorMapping />} />
                 <Route path="/pyramid" element={<Pyramid />} />
                 <Route path="/stacked" element={<Stacked />} />

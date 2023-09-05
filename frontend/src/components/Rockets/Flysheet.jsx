@@ -2,10 +2,22 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { BiSolidEditAlt } from "react-icons/bi";
 
+import Button from "../../components/Button"; // Import your Button component
+import { useStateContext } from "../../contexts/ContextProvider"; // Import the context
+import { GiCalculator } from "react-icons/gi";
 
-export default function Flysheet({ data, handleDelete, onCheckboxChange, showCalculateModal }) {
+export default function Flysheet({
+  data,
+  handleDelete,
+  onCheckboxChange,
+  showCalculateModal,
+}) {
+  const { currentColor } = useStateContext();
+
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false);
 
@@ -65,14 +77,14 @@ export default function Flysheet({ data, handleDelete, onCheckboxChange, showCal
   };
 
   return (
-    <tr>
-      <th>{flightNumber}</th>
-      <th>{formattedDate}</th>
-      <th>{liftoffMass}</th>
-      <th>{contestAltimeterApogee}</th>
-      <th>{formattedAvgDuration}</th>
-      <th>{parachuteAreaBooster}</th>
-      <th>{formattedTotalScore}</th>
+    <tr className="font-normal !important">
+      <th className="font-normal">{flightNumber}</th>
+      <th className="font-normal">{formattedDate}</th>
+      <th className="font-normal">{liftoffMass}</th>
+      <th className="font-normal">{contestAltimeterApogee}</th>
+      <th className="font-normal">{formattedAvgDuration}</th>
+      <th className="font-normal">{parachuteAreaBooster}</th>
+      <th className="font-normal">{formattedTotalScore}</th>
       <th className="checkbox-cell">
         <Form.Check
           type="checkbox"
@@ -80,31 +92,65 @@ export default function Flysheet({ data, handleDelete, onCheckboxChange, showCal
           onChange={handleCheckboxChange}
         />
       </th>
-      <th>
+      <td>
         {/* <button
           onClick={() => navigate(`/flysheets/parachute/${_id}`, { state: data })}
           className="btn btn-primary"
         >
           Calculate
         </button> */}
-        <Button onClick={() => showCalculateModal(_id)}>
-          Calculate
-        </Button>
-      </th>
+        {/* <Button onClick={() => showCalculateModal(_id)}>Calculate</Button> */}
+        <div
+          className="mt-1 flex justify-center"
+          onClick={() => showCalculateModal(_id)}
+        >
+          {/* <Button
+            color="white"
+            bgColor={currentColor}
+            text="Calculate"
+            borderRadius="10px"
+            width="1/2"
+          /> */}
+          <GiCalculator />
+        </div>
+      </td>
+
       <td>
-        <button
+        {/* BiSolidEditAlt */}
+        <div
+          className="mt-1 flex justify-center"
           onClick={() =>
             navigate(`/flysheets/rocket/edit/${_id}`, { state: data })
           }
-          className="btn btn-primary"
         >
-          Edit
-        </button>
+          {/* <Button
+            color="white"
+            bgColor={currentColor}
+            text="Edit"
+            borderRadius="10px"
+            width="1/2"
+          /> */}
+          <BiSolidEditAlt />
+        </div>
       </td>
       <td>
+        {/* RiDeleteBin6Line
         <button onClick={() => handleDelete(_id)} className="btn btn-danger">
           Delete
-        </button>
+        </button> */}
+        <div
+          className="mt-1 flex justify-center"
+          onClick={() => handleDelete(_id)}
+        >
+          {/* <Button
+            color="white"
+            bgColor="#b8002e"
+            text="Delete"
+            borderRadius="10px"
+            width="1/2"
+          /> */}
+          <RiDeleteBin6Line />
+        </div>
       </td>
     </tr>
   );

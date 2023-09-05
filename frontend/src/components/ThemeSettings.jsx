@@ -7,6 +7,19 @@ import { ColorPickerComponent } from "@syncfusion/ej2-react-inputs";
 import { themeColors } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
+
+
+const CustomColorPicker = ({ id, mode }) => (
+  <ColorPickerComponent
+    id={id}
+    mode={mode}
+    modeSwitcher={false}
+    inline
+    showButtons={false}
+    change={change}
+  />
+);
+
 const ThemeSettings = () => {
   const { setColor, setMode, currentMode, currentColor, setThemeSettings } =
     useStateContext();
@@ -15,6 +28,12 @@ const ThemeSettings = () => {
 
   const handleColorChange = (args) => {
     setPickerColor(args.currentValue.hex);
+  };
+
+  const change = (args) => {
+    document.getElementById("preview").style.backgroundColor =
+      args.currentValue.hex;
+      setPickerColor(args.currentValue.hex);
   };
 
   return (
@@ -98,32 +117,41 @@ const ThemeSettings = () => {
               ))}
             </div>
 
-              <p className="font-semibold text-xl mt-4">Custom Theme Colors</p>
-              <TooltipComponent content="Custom Color" position="TopCenter">
-                <div className="relative mt-2 cursor-pointer flex gap-5 items-center">
-                  <button
-                    type="button"
-                    className="h-10 w-10 rounded-full cursor-pointer"
-                    style={{ backgroundColor: pickerColor }}
-                    onClick={() => {
-                      setColor(pickerColor);
-                      setThemeSettings(false);
-                    }}
-                  >
-                    <BsCheck className="ml-2 text-2xl text-white" />
-                  </button>
-                  <ColorPickerComponent
-                    id="custom-color-picker"
-                    mode="Palette"
-                    modeSwitcher={false}
-                    inline
-                    showButtons={false}
-                    value={pickerColor}
-                    change={handleColorChange}
-                  />
-                </div>
-              </TooltipComponent>
-            
+            <p className="font-semibold text-xl mt-4">Custom Theme Colors</p>
+            <TooltipComponent content="Custom Color" position="TopCenter">
+              <div className="relative mt-2 cursor-pointer flex gap-5 items-center">
+                <button
+                  type="button"
+                  className="h-10 w-10 rounded-full cursor-pointer"
+                  style={{ backgroundColor: pickerColor }}
+                  onClick={() => {
+                    setColor(pickerColor);
+                    setThemeSettings(false);
+                  }}
+                >
+                  <BsCheck className="ml-2 text-2xl text-white" />
+                </button>
+                {/* <ColorPickerComponent
+                  id="custom-color-picker"
+                  mode="Palette"
+                  modeSwitcher={false}
+                  inline
+                  showButtons={false}
+                  value={pickerColor}
+                  change={handleColorChange}
+                /> */}
+                <ColorPickerComponent
+                  id="inline-picker"
+                  mode="Picker"
+                  modeSwitcher={false}
+                  inline
+                  showButtons={false}
+                  value={pickerColor}
+                  change={change}
+                />
+              </div>
+              <div id="preview" />
+            </TooltipComponent>
           </div>
         </div>
       </div>

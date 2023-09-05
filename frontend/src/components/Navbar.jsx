@@ -44,7 +44,7 @@ const Navbar = () => {
   } = useStateContext();
 
   const { user } = useContext(FlysheetContext);
-  // re-render the component when the user changes
+
   useEffect(() => {
     // re-render this page when user changes state
   }, [user]);

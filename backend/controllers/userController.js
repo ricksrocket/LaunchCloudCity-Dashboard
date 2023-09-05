@@ -120,18 +120,19 @@ exports.updateUser = async (req, res) => {
   }
 };
 
-// delete Users and Admins
 exports.deleteUser = async (req, res) => {
   try {
-    let { email } = req.body;
-    console.log(email);
-    email = req.body.email.toLowerCase();
-    const user = await User.deleteOne({ email: email });
+    let { id } = req.params;
+    console.log('Deleting user with ID:', id); // Add this line
+    const user = await User
+    .deleteOne({ _id: id }  )
     res.json({ success: true, data: user });
   } catch (error) {
+    console.error('Error deleting user:', error); // Add this line
     return res.json({ success: false, data: error });
   }
 };
+
 
 // GET all Users and Admins
 exports.getAllUsers = async (req, res) => {

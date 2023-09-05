@@ -76,7 +76,7 @@ Connection: close
 }
 
 ### Get Team Name
-GET http://localhost:3000/users/teams/64cd445b4949fcb0d0e2f9e6
+GET http://localhost:00/users/teams/64cd445b4949fcb0d0e2f9e6
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGM2NWUwYTI4OWQ2M2FlNzA3ZThkZGUiLCJyb2xlIjoic3R1ZGVudCIsInRlYW1JZCI6IjY0YzcyMWU4ZGU2YjQ3ZTJjNTJmZGVjNyIsImlhdCI6MTY5MTAwMDAwMX0.K_vvtUs3D4EGVj6BhIkYTe1EQDFKRw0y2VB_asyN7UI
 
@@ -86,5 +86,3 @@ GET http://localhost:8000/users
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY
 
-http GET http://localhost:8000/users Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY
-http GET http://localhost:8000/users "Authorization:Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2OTA2NTg0MTJ9.Oi0kdFIX8GCZmgfwBqtmhiscdYfjQciCOpzrGjsLGeY"

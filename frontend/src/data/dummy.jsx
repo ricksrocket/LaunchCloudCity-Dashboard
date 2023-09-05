@@ -1,13 +1,13 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock, AiOutlineDashboard } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart } from 'react-icons/fi';
-import { BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsTable } from 'react-icons/bs';
+import { BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsTable, BsCalendar2Day } from 'react-icons/bs';
 import { PiStudentFill } from 'react-icons/pi';
 // import { IoMdContacts } from 'react-icons/io';
 import {  RiStockLine } from 'react-icons/ri';
-import { MdOutlineSupervisorAccount, MdGroups, MdOutlineContacts, MdOutlineAttachMoney, MdChecklist } from 'react-icons/md';
+import { MdOutlineSupervisorAccount, MdGroups, MdOutlineContacts, MdOutlineAttachMoney, MdChecklist, MdOutlineRocketLaunch, MdVideoLibrary } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
-import { TiTick } from 'react-icons/ti';
+import { TiTick, TiWeatherPartlySunny } from 'react-icons/ti';
 import { GiLouvrePyramid, GiParachute } from 'react-icons/gi';
 import { GrLocation } from 'react-icons/gr';
 // import {CgProfile} from 'react-icons/cg';
@@ -25,6 +25,7 @@ import product5 from './product5.jpg';
 import product6 from './product6.jpg';
 import product7 from './product7.jpg';
 import product8 from './product8.jpg';
+import { BiLineChartDown } from 'react-icons/bi';
 
 export const gridOrderImage = (props) => (
   <div>
@@ -495,7 +496,7 @@ export const links = [
         icon: <PiStudentFill />,
       },
       {
-        name: 'transactions',
+        name: 'financials',
         icon: <MdOutlineAttachMoney />,
       },
     ],
@@ -505,7 +506,7 @@ export const links = [
     links: [
       {
         name: 'calendar',
-        icon: <AiOutlineCalendar />,
+        icon: <BsCalendar2Day />,
       },
       {
         name: 'flysheets',
@@ -522,24 +523,24 @@ export const links = [
     ],
   },
   {
-    title: 'Charts',
+    title: 'Space Exploration Hub',
     links: [
       {
-        name: 'line',
-        icon: <AiOutlineStock />,
+        name: 'NASA-SLI',
+        icon: <MdOutlineRocketLaunch />,
       },
       {
-        name: 'area',
-        icon: <AiOutlineAreaChart />,
+        name: 'recent-videos',
+        icon: <MdVideoLibrary />,
       },
 
       {
-        name: 'bar',
-        icon: <AiOutlineBarChart />,
+        name: 'flight-data-chart',
+        icon: <BiLineChartDown />,
       },
       {
-        name: 'pie',
-        icon: <FiPieChart />,
+        name: 'weather-forecast',
+        icon: <TiWeatherPartlySunny />,
       },
       {
         name: 'financial',

@@ -3,6 +3,64 @@
 import React, { useEffect, useState } from "react";
 import FlysheetContext from "./FlysheetContext";
 
+export const initialFlysheetState = {
+  rocketTeamName: "",
+  flightNumber: 0,
+  teamId: "",
+  preFlight: {
+    date: "",
+    timeOfLaunch: "",
+    location: "Fairfield, IA",
+    elevationOfLaunchSite: 774,
+    weatherConditions: {
+      temperature: 0,
+      humidity: 0,
+      atmosphericPressure: 0,
+      airDensity: 0,
+      windSpeedDirection: 270,
+      windSpeed: 0,
+    },
+    rocketInformation: {
+      motorUsed: "F39-7",
+      motorSerialNumber: "",
+      motorTotalImpulse: 49.7,
+      liftoffMass: 450,
+      parachuteAreaPayload: null, // works with logic in the add page
+      parachuteAreaBooster: 0,
+      targetApogee: 820,
+      staticStabilityMargin: 1.0,
+    },
+    launchInformation: {
+      railLength: 2.4382,
+      launchAngleDownwind: 1.0,
+      launchAnglePerpendicular: 0.0,
+      tarcAltimeterModel: "PNUT",
+      tarcAltimeterSerialNumber: "",
+    },
+  },
+  postFlight: {
+    contestAltimeterApogee: 0,
+    timer1Duration: 40,
+    timer2Duration: 40,
+    avgDuration: 0,
+    tarcScores: {
+      altitudeScore: 0,
+      durationScore: 0,
+      totalScore: 0,
+    },
+    flightComputerData: {
+      initialTheta: 0,
+      initialPhi: 0,
+      maxSpeed: 0,
+      maxGForce: 0,
+      timeBurnout: 0,
+      timeToApogee: 0,
+      computerAltimeterApogee: 0,
+    },
+  },
+  countdownChecklist: "64d21300ae223e790ff7fba0", // You can set this based on the specific implementation
+}
+
 const FlysheetProvider = ({ children }) => {
 
   const [flysheets, setFlysheets] = useState([]);
@@ -19,63 +77,9 @@ const FlysheetProvider = ({ children }) => {
         };
   });
 
-  const [flysheetState, setFlysheetState] = useState({
-    rocketTeamName: "",
-    flightNumber: 0,
-    teamId: "",
-    preFlight: {
-      date: "",
-      timeOfLaunch: "",
-      location: "Fairfield, IA",
-      elevationOfLaunchSite: 774,
-      weatherConditions: {
-        temperature: 0,
-        humidity: 0,
-        atmosphericPressure: 0,
-        airDensity: 0,
-        windSpeedDirection: 270,
-        windSpeed: 0,
-      },
-      rocketInformation: {
-        motorUsed: "F39-7",
-        motorSerialNumber: "",
-        motorTotalImpulse: 49.7,
-        liftoffMass: 450,
-        parachuteAreaPayload: null, // works with logic in the add page
-        parachuteAreaBooster: 0,
-        targetApogee: 820,
-        staticStabilityMargin: 1.0,
-      },
-      launchInformation: {
-        railLength: 2.4382,
-        launchAngleDownwind: 1.0,
-        launchAnglePerpendicular: 0.0,
-        tarcAltimeterModel: "PNUT",
-        tarcAltimeterSerialNumber: "",
-      },
-    },
-    postFlight: {
-      contestAltimeterApogee: 0,
-      timer1Duration: 40,
-      timer2Duration: 40,
-      avgDuration: 0,
-      tarcScores: {
-        altitudeScore: 0,
-        durationScore: 0,
-        totalScore: 0,
-      },
-      flightComputerData: {
-        initialTheta: 0,
-        initialPhi: 0,
-        maxSpeed: 0,
-        maxGForce: 0,
-        timeBurnout: 0,
-        timeToApogee: 0,
-        computerAltimeterApogee: 0,
-      },
-    },
-    countdownChecklist: "64d21300ae223e790ff7fba0", // You can set this based on the specific implementation
-  });
+
+
+  const [flysheetState, setFlysheetState] = useState(initialFlysheetState);
 
   // Load user data from localStorage on app start
   useEffect(() => {
@@ -131,3 +135,4 @@ const FlysheetProvider = ({ children }) => {
 };
 
 export default FlysheetProvider;
+

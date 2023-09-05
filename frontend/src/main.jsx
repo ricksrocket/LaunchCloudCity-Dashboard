@@ -1,8 +1,10 @@
+// main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "./index.css";
 import App from "./App";
+// import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 import { ContextProvider } from "./contexts/ContextProvider";
 import { registerLicense } from "@syncfusion/ej2-base";
 import FlysheetProvider from "./contexts/FlysheetProvider";
